@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>PWR2 GM</title>
+  <link rel="stylesheet" type="text/css" href="gm.css">
+</head>
+<style media="screen">
+body {
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+}
+</style>
+<script type="text/javascript">
+var song = localStorage["song"];
+var song_name = localStorage["song_name"];
+var avatar = localStorage["race"];
+var stage_name = localStorage["stage_name"];
+var search;
+var ticket;
+
+function p_ticket() {
+  not_search = Math.random();
+  ticket = .17;
+  if (avatar === "black") {
+    console.log("Hello");
+    p = (1 - not_search*0.5);
+    if (Math.random() < p) {
+      search = true;
+      ticket = false;
+      document.write("The officer get's visibly upset and asks you to step out of your vehicle.");
+    } else if (Math.random() < ticket*1.2) {
+      search = false;
+      ticket = true;
+      document.write("The officer reprimands you for speeding and writes you a ticket.");
+    } else {
+      search = false;
+      ticket = false;
+      document.write("The officer let's you know that they are a HUGE fan of your music! They let you off with a warning and asks for a picture :)");
+    }
+  } else {
+    if (not_search > 0.5) {
+      if (ticket > 0.5) {
+        search = false;
+        ticket = true;
+        document.write("The officer gives you a ticket :(. It's ok! With your new found fame, this is only a small bump in the road.)");
+      } else {
+        search = false;
+        ticket = true;
+        document.write("The officer let's you know that they are a HUGE fan of your music! They let you off with a warning and ask for a picture :)");
+      }
+    } else {
+      search = true;
+      ticket = false;
+      document.write("The officer notices some supicious behavior and asks you to step out of your vehicle to take a breathalyzer test. Yay! He finds that you are under the legal limit and you are free to go.")
+    }
+  }
+}
+
+function search_option() {
+  if (avatar === "black") {
+    document.write("From here, things are not likely to look so good. Research by the Stanford Open Policing Project shows that police stopped and searched black and Latino drivers on <em> the basis of less evidence than used in stopping white drivers </em>, who are searched less often but are more likely to be found with illegal items. <br> Because of the color of your skin, you are not likely to have a good road from here. In the best case, they don't find any criminalizing evidence against you. There is a possibility that you're lyrics will be used against you...yikes. If you are not a rapper, it's not very likely. Only <em> one case </em> exists where music other than rap was used as evidence in court. Battling this ticket is going to be a rough one however. <br> There is a large chance (roughly 36%) of getting an all-white jury and in an all-white jury, there is an 81% rate of conviction for black people.");
+  } else {
+    document.write("Things aren't too bad for you from here. You're search is likely to be evaluated on the basis of adequate evidence, so if you weren't doing anything and you comply with the officer - you will be completely fine! However resulting tickets can be a burden but with your new found fame, everything will be just fine.");
+  }
+}
+
+function ticket() {
+  document.write("Thankfully, you only walked away with a ticket. Despite it being inconvenient, your new found fame definitely makes this easier. Once the officer leaves, you can be on your way and continue rocking on!");
+
+}
+
+function freedom() {
+  document.write("FREEDOM! The officer let you go with just a warning...wow luck is really on your side today.")
+
+}
+
+function reroute() {
+  window.location.pathname = '/Users/hodenabdi-yusuf/Desktop/misc_code/playlist.html';
+}
+
+</script>
+
+
+<body>
+
+  <!-- navigation bar -->
+  <ul style="background-image: url('https://media1.tenor.com/images/2cdcacd189dd5bdf408d56de776e6e1e/tenor.gif?itemid=15152968')">
+    <li> <a href="index.html">Genre/Mode </a> </li>
+    <li> <a href="playlist.html">Playlist (and relevant links)</a> </li>
+  </ul>
+
+  <h1 style="text-align: center;">NEXT LEVEL!</h1>
+
+  <h3>Welcome again, <script type="text/javascript">
+  document.write(stage_name);
+  </script>!</h3>
+
+  <div class="row">
+    <div style="float: left;width: 60%;">
+      <p style="font-size: 24px;"> Here is a glimpse into your new and growing career. <br> Your stage name is:
+        <script type="text/javascript">document.write(stage_name)</script>
+        <br> Your debut song is:
+        <script type="text/javascript"> document.write(song_name);</script> <br>
+        You're first concert was a success! Your song is released on all platforms and you are planning a tour to celebrate. Time to go celebrate your successes.
+      </p>
+    </div>
+    <div style="float: left;width: 40%;">
+      <div class="tenor-gif-embed" data-postid="15739602" data-share-method="host" data-width="100%" data-aspect-ratio="1.7913669064748199"><a href="https://tenor.com/view/jamming-dancing-jam-session-rock-out-playing-guitar-gif-15739602">Jamming Dancing GIF</a> from <a href="https://tenor.com/search/jamming-gifs">Jamming GIFs</a></div><script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+    </div>
+  </div>
+  <div class="row">
+    <div style="float: left;width: 40%;">
+      <div class="tenor-gif-embed" data-postid="13476332" data-share-method="host" data-width="100%" data-aspect-ratio="1.7785714285714287"><a href="https://tenor.com/view/mad-annoyed-harassed-bothered-not-happy-gif-13476332">Mad Annoyed GIF</a> from <a href="https://tenor.com/search/mad-gifs">Mad GIFs</a></div><script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+    </div>
+    <div style="float: left;width: 60%;">
+      <p style="font-size: 24px;"> You've spent a night out with some friends. Once you finish up your night, you and your crew drive home. And oh no, you've been pulled over! <br> The officer tells you they noticed some you were speeding while you were driving. Upon rolling down the window, the officer looks into the vehicle and immediately
+        recognizes you from your new song!
+        <em><script type="text/javascript">
+        p_ticket();
+        </script> </p></em>
+      </div>
+    </div>
+    <div class="row">
+      <div style="float: left;width: 60%;">
+        <p style="font-size: 24px;"><script type="text/javascript">
+        if (search === true) {
+          search_option();
+        } else if (search === false && ticket === false) {
+          freedom();
+        } else if (ticket === true) {
+          ticket();
+        }
+        </script> That concludes your journey through the beginning of your
+      new career as a musician! </p>
+
+      </div>
+      <div id="result" style="float: left;width: 40%;">
+        <div class="tenor-gif-embed" data-postid="12235828" data-share-method="host" data-width="100%" data-aspect-ratio="1.6711409395973154"><a href="https://tenor.com/view/game-over-insert-coins-gif-12235828">Game Over Insert Coins GIF</a> from <a href="https://tenor.com/search/gameover-gifs">Gameover GIFs</a></div><script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+
+        <button type="button" name="button" onclick="reroute()">When you're ready to move on, click here</button>
+      </div>
+      </div>
+
+
+
+
+
+    </body>
+    </html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>PWR2 GM</title>
+  <link rel="stylesheet" type="text/css" href="gm.css">
+</head>
+<script type="text/javascript">
+var song;
+
+var stage_name;
+
+var avatar;
+
+function select_avatar(clicked_id) {
+  if (avatar !== undefined) {
+    document.getElementById(avatar.id).className = "card";
+  }
+  avatar = document.getElementById(clicked_id);
+  document.getElementById(clicked_id).classList.remove("card");
+  document.getElementById(clicked_id).classList.add("active_card");
+  console.log(clicked_id);
+}
+
+function select_stage_name() {
+  stage_name = document.getElementById("stage_name").value;
+  console.log(stage_name);
+}
+
+function select_song(selected_song) {
+  if(song !== undefined) {
+    document.getElementById(song).className = "card";
+  }
+  song = selected_song;
+  document.getElementById(song).classList.remove("card");
+  document.getElementById(song).classList.add("active_card");
+
+  console.log(song);
+}
+
+function testJS() {
+
+  var song_name;
+  if (song === "rap") {
+    song_name = "First Day Out";
+  } else if (song === "alernative") {
+    song_name = "Breezeblocks";
+  } else {
+    song_name = "Bloodbath";
+  }
+
+  localStorage["stage_name"] = stage_name;
+  localStorage["race"] = avatar.id;
+  localStorage["song_name"] = song_name;
+  localStorage["song"] = song;
+
+  window.location.pathname = '/Users/hodenabdi-yusuf/Desktop/misc code/next_level.html'
+
+}
+
+function next_level(id) {
+
+  if (song !== undefined && avatar !== undefined && stage_name !== undefined) {
+    // new_avatar = avatar;
+    // var text = document.createElement("P");
+    // text.innerHTML = "Alright! You've made some interesting choices...Here is your final avatar.";
+    // document.getElementById(new_avatar.id).appendChild(text);
+    //
+    // // document.getElementById("final_result").className = "card";
+    //
+    // document.getElementById(new_avatar.id).className = "final_avatar";
+    //
+    // document.getElementById("final").appendChild(new_avatar);
+    //
+    // var name = document.createElement("P");
+    // var song_name;
+    // if (song === "rap") {
+    //   song_name = "First Day Out";
+    // } else if (song === "alernative") {
+    //   song_name = "Breezeblocks";
+    // } else {
+    //   song_name = "Bloodbath";
+    // }
+    //
+    // console.log(stage_name, song_name);
+    //
+    // name.innerHTML = "You're stage name is ".concat(stage_name, " and the song you will perform is ", song_name);
+    //
+    // document.getElementById("specs").className = "container";
+    //
+    // document.getElementById("specs").appendChild(name);
+
+    testJS();
+
+    window.location.pathname = '/Users/hodenabdi-yusuf/Desktop/misc_code/next_level.html';
+  } else {
+    alert("Incomplete Form!");
+  }
+
+}
+
+</script>
+<body>
+  <!-- navigation bar -->
+  <ul style="background-image: url('https://media1.tenor.com/images/2cdcacd189dd5bdf408d56de776e6e1e/tenor.gif?itemid=15152968')">
+    <li> <a class="active" href="index.html">Genre/Mode </a> </li>
+    <li> <a href="playlist.html">Playlist (and relevant links)</a> </li>
+  </ul>
+
+  <h1 class="welcome" align="center">Welcome!</h1>
+
+  <p class="intro">Today, we will be playing a game following your new career as a musician! Let's start by designing an avatar...</p>
+
+  <h2>Select an avatar</h2>
+
+  <div style="margin: 30px">
+    <div class="row">
+      <div class="column">
+        <div class="card" id="black" onclick="select_avatar(this.id)">
+          <div class="tenor-gif-embed" data-postid="11816878" data-share-method="host" data-width="100%" data-aspect-ratio="1.3333333333333333"><a href="https://tenor.com/view/yo-dancing-hiphop-rapper-rap-gif-11816878">โย่ว GIF</a> from <a href="https://tenor.com/search/yo-gifs">Yo GIFs</a></div><script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+          <div class="container">
+            <h4><b>Avatar 1</b></h4>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="card" onclick="select_avatar(this.id)" id="white">
+          <div class="tenor-gif-embed" data-postid="15579252" data-share-method="host" data-width="100%" data-aspect-ratio="1.7913669064748199"><a href="https://tenor.com/view/who-dat-who-dis-iggy-azalea-rapper-gif-15579252">Who Dat Who Dis GIF</a> from <a href="https://tenor.com/search/whodat-gifs">Whodat GIFs</a></div><script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+          <div class="container">
+            <h4><b>Avatar 2</b></h4>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="card" onclick="select_avatar(this.id)" id="white2">
+          <div class="tenor-gif-embed" data-postid="15703809" data-share-method="host" data-width="100%" data-aspect-ratio="1.1662763466042154"><a href="https://tenor.com/view/xtina-christmas-christina-aguilera-singing-singer-gif-15703809">Xtina Christmas GIF</a> from <a href="https://tenor.com/search/xtina-gifs">Xtina GIFs</a></div><script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+          <div class="container">
+            <h4><b>Avatar 3</b></h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2>What's your stage name?</h2>
+  <div>
+    <div class="stageName">
+      <p class="input">Stage Name: <input style=type="text" id="stage_name">
+        <button onclick="select_stage_name()">Submit</button></p>
+    </div>
+  </div>
+
+  <h2>Pick a song to debut at your first performance!</h2>
+
+  <div style="margin: 30px">
+    <div class="row">
+      <div class="column">
+        <div class="card" id="rap" onclick="select_song(this.id)">
+          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/pWh4O6ujK4o?start=73" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <div class="container">
+            <h4><b>Song 1</b></h4>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="card" id="heavy_metal" onclick="select_song(this.id)">
+
+          <div class="container">
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/77bTOAn62GA?start=24" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <h4 style="text-align: center;"><b>Song 2</b></h4>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="card" id="alternative" onclick="select_song(this.id)">
+
+          <div class="container">
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/rVeMiVU77wo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <h4><b>Song 3</b></h4>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2>Satisfied?</h2>
+  <button type="button" name="button" onclick="next_level()">Click me when you are complete.</button>
+
+</body>
+</html>
